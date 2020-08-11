@@ -77,7 +77,6 @@ class Crowd {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
 
 	}
 
@@ -116,6 +115,17 @@ class Crowd {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-crowd-admin.php';
 
+        /**
+         * The class providing the soap client to authenticate against Atlassian Crowd.
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-crowd-client.php';
+
+        /**
+         * Exceptions
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/exceptions/class-connection-exception.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/exceptions/class-login-exception.php';
+
 		$this->loader = new Crowd_Loader();
 
 	}
@@ -145,12 +155,12 @@ class Crowd {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_admin = new Crowd_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'crowd_login_add_plugin_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'crowd_login_page_init' );
 
+		$this->loader->add_filter('authenticate', $plugin_admin, 'crowd_login_authenticate', 1, 3);
 	}
 
 	/**

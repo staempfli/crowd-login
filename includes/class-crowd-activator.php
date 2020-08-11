@@ -23,14 +23,15 @@
 class Crowd_Activator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+     * Actions performed during plugin activation.
 	 *
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+	    // Set default option values on plugin activation
+	    add_option('crowd_login_mode', 'mode_create');
+	    add_option('crowd_login_securitymode', 'security_normal');
+	    add_option('crowd_account_type', 'administrator');
 	}
 
 }

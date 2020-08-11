@@ -23,9 +23,7 @@
 class Crowd_Deactivator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+     * Actions performed during plugin deactivation.
 	 *
 	 * @since    1.0.0
 	 */

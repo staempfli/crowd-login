@@ -64,6 +64,25 @@ register_deactivation_hook( __FILE__, 'deactivate_crowd' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-crowd.php';
 
+// Fix for e-mail exists bug
+if ( !function_exists('get_user_by_email') ) :
+    /**
+     * Retrieve user info by email.
+     *
+     * @since 2.5
+     *
+     * @param string $email User's email address
+     * @return bool|object False on failure, User DB row object
+     */
+    function get_user_by_email($email) {
+        if(strlen($email) == 0 || empty($email) || $email == '' || strpos($email, '@') == false) {
+            return false;
+        } else {
+            return get_user_by('email', $email);
+        }
+    }
+endif;
+
 /**
  * Begins execution of the plugin.
  *
