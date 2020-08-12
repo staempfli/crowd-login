@@ -27,9 +27,9 @@ class Crowd_Client
      *
      * @since    1.0.0
      * @access   private
-     * @var      SoapClient $crowd_login_client The SOAP client.
+     * @var      SoapClient $crowd_login_soap_client The SOAP client.
      */
-    private $crowd_login_client;
+    private $crowd_login_soap_client;
 
     /**
      * The soap client configuration.
@@ -52,6 +52,7 @@ class Crowd_Client
     /**
      * Crowd_Client constructor.
      *
+     * @since    1.0.0
      * @throws Crowd_Connection_Exception
      */
     public function __construct()
@@ -60,7 +61,7 @@ class Crowd_Client
         $service_url = $this->crowd_login_configuration['crowd_url'] . '/services/' . 'SecurityServer?wsdl';
 
         try {
-            $this->crowd_login_client = new SoapClient($service_url);
+            $this->crowd_login_soap_client = new SoapClient($service_url);
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
@@ -69,8 +70,9 @@ class Crowd_Client
     }
 
     /**
-     * Authenticates application against Atlassian Crowd server.
+     * Authenticates the application against Atlassian Crowd server.
      *
+     * @since    1.0.0
      * @return string
      * @throws Crowd_Login_Exception
      */
@@ -86,7 +88,7 @@ class Crowd_Client
         ];
 
         try {
-            $response = $this->crowd_login_client->authenticateApplication($params);
+            $response = $this->crowd_login_soap_client->authenticateApplication($params);
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
@@ -103,7 +105,14 @@ class Crowd_Client
     }
 
     /**
-     * Authenticates a principal to the Crowd security server for the application client.
+     * Authenticates a principal to the Atlassian Crowd server.
+     *
+     * @since    1.0.0
+     * @param $name
+     * @param $credential
+     * @param $user_agent
+     * @param $remote_address
+     * @return |null
      */
     public function authenticatePrincipal($name, $credential, $user_agent, $remote_address)
     {
@@ -130,7 +139,7 @@ class Crowd_Client
         ];
 
         try {
-            $response = $this->crowd_login_client->authenticatePrincipal($params);
+            $response = $this->crowd_login_soap_client->authenticatePrincipal($params);
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
@@ -138,22 +147,28 @@ class Crowd_Client
             return null;
         }
 
-        $princ_token = $response->out;
+        $principal_token = $response->out;
 
-        return $princ_token;
+        return $principal_token;
     }
 
     /**
-     * Determines if the principal's current token is still valid in Crowd.
+     * Determine if the current token is still valid in Atlassian Crowd server.
+     *
+     * @since    1.0.0
+     * @param $principal_token
+     * @param $user_agent
+     * @param $remote_address
+     * @return string
      */
-    public function isValidPrincipalToken($princ_token, $user_agent, $remote_address)
+    public function isValidPrincipalToken($principal_token, $user_agent, $remote_address)
     {
         $params = [
             'in0' => [
                 'name' => $this->crowd_login_configuration['crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
-            'in1' => $princ_token,
+            'in1' => $principal_token,
             'in2' => [
                 [
                     'name' => 'User-Agent',
@@ -167,7 +182,7 @@ class Crowd_Client
         ];
 
         try {
-            $response = $this->crowd_login_client->isValidPrincipalToken($params);
+            $response = $this->crowd_login_soap_client->isValidPrincipalToken($params);
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
@@ -181,20 +196,24 @@ class Crowd_Client
     }
 
     /**
-     * Invalidates a token for for this princpal for all application clients in Crowd.
+     * Invalidates given principal token for all application clients in Atlassian Crowd server.
+     *
+     * @since    1.0.0
+     * @param $principal_token
+     * @return bool
      */
-    public function invalidatePrincipalToken($princ_token)
+    public function invalidatePrincipalToken($principal_token)
     {
         $params = [
             'in0' => [
                 'name' => $this->crowd_login_configuration['crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
-            'in1' => $princ_token
+            'in1' => $principal_token
         ];
 
         try {
-            $response = $this->crowd_login_client->invalidatePrincipalToken($params);
+            $response = $this->crowd_login_soap_client->invalidatePrincipalToken($params);
             return true;
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
@@ -205,7 +224,11 @@ class Crowd_Client
     }
 
     /**
-     * Finds a principal by token.
+     * Finds a principal by its token.
+     *
+     * @since    1.0.0
+     * @param $principal_token
+     * @return |null
      */
     public function findPrincipalByToken($principal_token)
     {
@@ -218,7 +241,7 @@ class Crowd_Client
         ];
 
         try {
-            $response = $this->crowd_login_client->findPrincipalByToken($params);
+            $response = $this->crowd_login_soap_client->findPrincipalByToken($params);
             return $response->out;
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
@@ -231,6 +254,7 @@ class Crowd_Client
     /**
      * Returns array of groups of the given principal.
      *
+     * @since    1.0.0
      * @param $principal_token
      * @return array
      */
@@ -245,8 +269,9 @@ class Crowd_Client
         ];
 
         try {
-            $response = $this->crowd_login_client->findGroupMemberships($params);
+            $response = $this->crowd_login_soap_client->findGroupMemberships($params);
             if ($response->out == null){
+                // No groups were found return empty array
                 return [];
             } else {
                 // Convert stdObject from api to array

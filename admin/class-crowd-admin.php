@@ -23,6 +23,7 @@
  * $crowd_application_password = $crowd_login_options['crowd_application_password']; // Application Password
  * $crowd_login_mode = $crowd_login_options['crowd_login_mode']; // Login Mode
  * $crowd_account_type = $crowd_login_options['crowd_account_type']; // Account Type
+ * ...
  *
  * @package    Crowd
  * @subpackage Crowd/admin
@@ -146,101 +147,101 @@ class Crowd_Admin
     public function crowd_login_page_init()
     {
         register_setting(
-            'crowd_login_option_group', // option_group
-            'crowd_login_option_name', // option_name
-            [$this, 'crowd_login_sanitize_options'] // sanitize_callback
+            'crowd_login_option_group',
+            'crowd_login_option_name',
+            [$this, 'crowd_login_sanitize_options']
         );
 
         register_setting(
-            'crowd_login_test_option_group', // option_group
-            'crowd_login_test_option_name', // option_name
-            [$this, 'crowd_login_sanitize_test_options'] // sanitize_callback
+            'crowd_login_test_option_group',
+            'crowd_login_test_option_name',
+            [$this, 'crowd_login_sanitize_test_options']
         );
 
         add_settings_section(
-            'crowd_login_setting_section', // id
-            'Settings', // title
-            [$this, 'crowd_login_section_info'], // callback
-            'crowd-login-admin' // page
+            'crowd_login_setting_section',
+            'Settings',
+            [$this, 'crowd_login_section_info'],
+            'crowd-login-admin'
         );
 
         add_settings_section(
-            'crowd_login_test_section', // id
-            'Test Settings', // title
-            [$this, 'crowd_login_test_section_info'], // callback
-            'crowd-login-admin-test' // page
+            'crowd_login_test_section',
+            'Test Settings',
+            [$this, 'crowd_login_test_section_info'],
+            'crowd-login-admin-test'
         );
 
         add_settings_field(
-            'crowd_url', // id
-            'Crowd URL', // title
-            [$this, 'crowd_url_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_url',
+            'Crowd URL',
+            [$this, 'crowd_url_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_application_name', // id
-            'Application Name', // title
-            [$this, 'crowd_application_name_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_application_name',
+            'Application Name',
+            [$this, 'crowd_application_name_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_application_password', // id
-            'Application Password', // title
-            [$this, 'crowd_application_password_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_application_password',
+            'Application Password',
+            [$this, 'crowd_application_password_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_login_mode', // id
-            'Login Mode', // title
-            [$this, 'crowd_login_mode_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_login_mode',
+            'Login Mode',
+            [$this, 'crowd_login_mode_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_group', // id
-            'Group', // title
-            [$this, 'crowd_group_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_group',
+            'Group',
+            [$this, 'crowd_group_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_login_securitymode', // id
-            'Security Mode', // title
-            [$this, 'crowd_login_securitymode_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_login_securitymode',
+            'Security Mode',
+            [$this, 'crowd_login_securitymode_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_account_type', // id
-            'Account Type', // title
-            [$this, 'crowd_account_type_callback'], // callback
-            'crowd-login-admin', // page
-            'crowd_login_setting_section' // section
+            'crowd_account_type',
+            'Account Type',
+            [$this, 'crowd_account_type_callback'],
+            'crowd-login-admin',
+            'crowd_login_setting_section'
         );
 
         add_settings_field(
-            'crowd_test_username', // id
-            'Username', // title
-            [$this, 'crowd_test_username_callback'], // callback
-            'crowd-login-admin-test', // page
-            'crowd_login_test_section' // section
+            'crowd_test_username',
+            'Username',
+            [$this, 'crowd_test_username_callback'],
+            'crowd-login-admin-test',
+            'crowd_login_test_section'
         );
 
         add_settings_field(
-            'crowd_test_password', // id
-            'Password', // title
-            [$this, 'crowd_test_password_callback'], // callback
-            'crowd-login-admin-test', // page
-            'crowd_login_test_section' // section
+            'crowd_test_password',
+            'Password',
+            [$this, 'crowd_test_password_callback'],
+            'crowd-login-admin-test',
+            'crowd_login_test_section'
         );
     }
 
