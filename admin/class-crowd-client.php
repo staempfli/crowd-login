@@ -207,14 +207,14 @@ class Crowd_Client
     /**
      * Finds a principal by token.
      */
-    public function findPrincipalByToken($princ_token)
+    public function findPrincipalByToken($principal_token)
     {
         $params = [
             'in0' => [
                 'name' => $this->crowd_login_configuration['crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
-            'in1' => $princ_token
+            'in1' => $principal_token
         ];
 
         try {
@@ -229,21 +229,29 @@ class Crowd_Client
     }
 
     /**
-     * Finds all of the groups the specified principal is in.
+     * Returns array of groups of the given principal.
+     *
+     * @param $principal_token
+     * @return array
      */
-    public function findGroupMemberships($princ_name)
+    public function findGroupMemberships($principal_token)
     {
         $params = [
             'in0' => [
                 'name' => $this->crowd_login_configuration['crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
-            'in1' => $princ_name
+            'in1' => $principal_token
         ];
 
         try {
             $response = $this->crowd_login_client->findGroupMemberships($params);
-            return $response->out;
+            if ($response->out == null){
+                return [];
+            } else {
+                // Convert stdObject from api to array
+                return json_decode(json_encode($response->out), true)['string'];
+            }
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();

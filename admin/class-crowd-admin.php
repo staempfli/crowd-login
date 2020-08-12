@@ -167,7 +167,7 @@ class Crowd_Admin
         add_settings_section(
             'crowd_login_test_section', // id
             'Test Settings', // title
-            [$this, 'crowd_login_section_info'], // callback
+            [$this, 'crowd_login_test_section_info'], // callback
             'crowd-login-admin-test' // page
         );
 
@@ -311,9 +311,21 @@ class Crowd_Admin
     }
 
     /**
+     * Callback for options section information
      *
+     * @since    1.0.0
      */
     public function crowd_login_section_info()
+    {
+
+    }
+
+    /**
+     * Callback for test section information
+     *
+     * @since    1.0.0
+     */
+    public function crowd_login_test_section_info()
     {
 
     }
@@ -343,8 +355,7 @@ class Crowd_Admin
             '<input class="regular-text" type="text" name="crowd_login_option_name[crowd_application_name]" id="crowd_application_name" value="%s">',
             isset($this->crowd_login_options['crowd_application_name']) ? esc_attr($this->crowd_login_options['crowd_application_name']) : ''
         );
-        echo "<p class='description'>" . __('The application name specified in the Atlassian Crowd backend.',
-                'crowd') . "</p>";
+        echo "<p class='description'>" . __('The application name specified in the Atlassian Crowd backend.', 'crowd') . "</p>";
     }
 
     /**
@@ -358,8 +369,7 @@ class Crowd_Admin
             '<input class="regular-text" type="text" name="crowd_login_option_name[crowd_application_password]" id="crowd_application_password" value="%s">',
             isset($this->crowd_login_options['crowd_application_password']) ? esc_attr($this->crowd_login_options['crowd_application_password']) : ''
         );
-        echo "<p class='description'>" . __('The application password specified in the Atlassian Crowd backend.',
-                'crowd') . "</p>";
+        echo "<p class='description'>" . __('The application password specified in the Atlassian Crowd backend.', 'crowd') . "</p>";
     }
 
     /**
@@ -377,8 +387,7 @@ class Crowd_Admin
                                                       value="mode_auth" <?php echo $checked; ?>>
                 <?php echo __('Authenticate only', 'crowd'); ?>
             </label>
-            <p class="description"><?php echo __("Authenticate user against Atlassian Crowd. No user is created.",
-                    "crowd"); ?></p><br>
+            <p class="description"><?php echo __('Authenticate user against Atlassian Crowd. No user is created.', 'crowd'); ?></p><br>
 
             <?php $checked = (isset($this->crowd_login_options['crowd_login_mode']) && $this->crowd_login_options['crowd_login_mode'] === 'mode_create') ? 'checked' : ''; ?>
             <label for="crowd_login_mode_create"><input type="radio" name="crowd_login_option_name[crowd_login_mode]"
@@ -386,8 +395,7 @@ class Crowd_Admin
                                                         value="mode_create" <?php echo $checked; ?>>
                 <?php echo __('Create user', 'crowd'); ?>
             </label>
-            <p class="description"><?php echo __("Create Wordpress user when successfully authenticated against Atlassian Crowd.",
-                    "crowd"); ?></p><br>
+            <p class="description"><?php echo __('Create Wordpress user when successfully authenticated against Atlassian Crowd.', 'crowd'); ?></p><br>
 
             <?php $checked = (isset($this->crowd_login_options['crowd_login_mode']) && $this->crowd_login_options['crowd_login_mode'] === 'mode_create_group') ? 'checked' : ''; ?>
             <label for="crowd_login_mode_create_group"><input type="radio"
@@ -396,8 +404,7 @@ class Crowd_Admin
                                                               value="mode_create_group" <?php echo $checked; ?>>
                 <?php echo __('Create user when groupmember', 'crowd'); ?>
             </label>
-            <p class="description"><?php echo __("Create Wordpress user only when successfully authenticated against Atlassian Crowd and user is a member of a specified group.",
-                    "crowd"); ?></p>
+            <p class="description"><?php echo __('Create Wordpress user only when successfully authenticated against Atlassian Crowd and user is a member of a specified group.', 'crowd'); ?></p>
         </fieldset>
         <?php
     }
@@ -413,8 +420,7 @@ class Crowd_Admin
             '<input class="regular-text" type="text" name="crowd_login_option_name[crowd_group]" id="crowd_group" value="%s">',
             isset($this->crowd_login_options['crowd_group']) ? esc_attr($this->crowd_login_options['crowd_group']) : ''
         );
-        echo "<p class='description'>" . __('A Wordpress user is only created if the user is a member of this group.',
-                'crowd') . "</p>";
+        echo "<p class='description'>" . __('A Wordpress user is only created if the user is a member of this group.', 'crowd') . "</p>";
     }
 
     /**
@@ -432,8 +438,7 @@ class Crowd_Admin
                        id="crowd_login_securitymode-normal" value="security_normal" <?php echo $checked; ?>>
                 <?php echo __('Normal', 'crowd'); ?>
             </label>
-            <p class="description"><?php echo __("First attempt to login with Atlassian Crowd user, when failing attempt login using the local Wordpress users. This can be used to provide a mixed login mode with Atlassian Crowd and Wordpress default login.",
-                    "crowd"); ?></p><br>
+            <p class="description"><?php echo __('First attempt to login with Atlassian Crowd user, when failing attempt login using the local Wordpress users. This can be used to provide a mixed login mode with Atlassian Crowd and Wordpress default login.', 'crowd'); ?></p><br>
 
             <?php $checked = (isset($this->crowd_login_options['crowd_login_securitymode']) && $this->crowd_login_options['crowd_login_securitymode'] === 'security_strict') ? 'checked' : ''; ?>
             <label for="crowd_login_securitymode-strict">
@@ -441,8 +446,7 @@ class Crowd_Admin
                        id="crowd_login_securitymode-strict" value="security_strict" <?php echo $checked; ?>>
                 <?php echo __('Strict', 'crowd'); ?>
             </label>
-            <p class="description"><?php echo __("Restrict logins to Atlassian Crowd only. The default Wordpress authentication is deactivated.",
-                    "crowd"); ?></p><br>
+            <p class="description"><?php echo __('Restrict logins to Atlassian Crowd only. The default Wordpress authentication is deactivated.', 'crowd'); ?></p><br>
         </fieldset>
         <?php
     }
@@ -468,8 +472,7 @@ class Crowd_Admin
             }
             ?>
         </select>
-        <p class="description"><?php echo __('Create Wordpress user with this role when login mode "create" is selected.',
-                'crowd'); ?></p><br>
+        <p class="description"><?php echo __('Create Wordpress user with this role when login mode "create" is selected.', 'crowd'); ?></p><br>
 
         <?php
     }
@@ -506,8 +509,8 @@ class Crowd_Admin
      * Authenticate against Atlassian Crowd server. Create user or log in according plugin configuration.
      * Return Wordpress user if successful, return a Wordpress error if not.
      *
-     * @return WP_Error|WP_User
      * @since    1.0.0
+     * @return WP_Error|WP_User
      */
     public function crowd_login_authenticate($user, $username, $password)
     {
@@ -563,8 +566,7 @@ class Crowd_Admin
                             return new WP_User($new_user_id);
                         } else {
                             do_action('wp_login_failed', $username);
-                            return new WP_Error('invalid_username',
-                                __('<strong>Crowd Login Error</strong>: Crowd credentials are correct and user creation is allowed but an error occurred creating the user in Wordpress. Actual WordPress error: ' . $new_user_id->get_error_message()));
+                            return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: An error occurred creating the user in Wordpress. <br><br>' . $new_user_id->get_error_message()));
                         }
                         break;
 
@@ -575,20 +577,17 @@ class Crowd_Admin
                                 return new WP_User($new_user_id);
                             } else {
                                 do_action('wp_login_failed', $username);
-                                return new WP_Error('invalid_username',
-                                    __('<strong>Crowd Login Error</strong>: Crowd Login credentials are correct but an error occurred creating the user in Wordpress. Actual Wordpress error: ' . $new_user_id->get_error_message()));
+                                return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: An error occurred creating the user in Wordpress. <br><br>' . $new_user_id->get_error_message()));
                             }
                         } else {
                             do_action('wp_login_failed', $username);
-                            return new WP_Error('invalid_username',
-                                __('<strong>Crowd Login Error</strong>: You are not allowed to log in. Please contact your administrator.'));
+                            return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: You are not allowed to log in. Please contact your administrator.'));
                         }
                         break;
 
                     default:
                         do_action('wp_login_failed', $username);
-                        return new WP_Error('invalid_username',
-                            __('<strong>Crowd Login Error</strong>: Crowd Login mode does not permit account creation.'));
+                        return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: Crowd Login mode does not permit account creation.'));
                 }
             } else {
                 if ($this->crowd_login_options['crowd_login_mode'] == 'mode_create_group') {
@@ -596,8 +595,7 @@ class Crowd_Admin
                         return new WP_User($user->ID);
                     } else {
                         do_action('wp_login_failed', $username);
-                        return new WP_Error('invalid_username',
-                            __('<strong>Crowd Login Error</strong>: You are not allowed to log in. Please contact your administrator.'));
+                        return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: You are not allowed to log in. Please contact your administrator.'));
                     }
                 } else {
                     return new WP_User($user->ID);
@@ -607,73 +605,65 @@ class Crowd_Admin
             if (is_a($auth_result, 'WP_Error')) {
                 return $auth_result;
             } else {
-                return new WP_Error('invalid_username',
-                    __('<strong>Crowd Login Error</strong>: Authentication failed.'));
+                return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: Authentication failed.'));
             }
         }
     }
 
     /**
+     * Authenticates against Atlassian Crowd server and returns principal token if successful.
+     *
      * @param $username
      * @param $password
-     * @return string|WP_Error|null
+     * @since    1.0.0
+     * @return string|WP_Error
      */
     public function crowd_login_can_authenticate($username, $password)
     {
         if ($this->crowd_client == null) {
-            return new WP_Error('crowd_error', __('<strong>Crowd Login Error</strong>: No Crowd Instance'));
+            return new WP_Error('crowd_client_error', __('<strong>Crowd Login Error</strong>: No Crowd_Client instance available.'));
         }
 
-        $this->crowd_login_principal_token = $this->crowd_client->authenticatePrincipal($username, $password,
-            $_SERVER['HTTP_USER_AGENT'], $_SERVER['REMOTE_ADDR']);
+        $this->crowd_login_principal_token = $this->crowd_client->authenticatePrincipal($username, $password, $_SERVER['HTTP_USER_AGENT'], $_SERVER['REMOTE_ADDR']);
 
         if ($this->crowd_login_principal_token == null) {
-            return new WP_Error('no_crowd_princ_error',
-                __('<strong>Crowd Login Error</strong>: Could not retrieve principal.'));
+            return new WP_Error('crowd_principal_error', __('<strong>Crowd Login Error</strong>: Could not retrieve principal from Atlassian Crowd server.'));
         }
 
         return $this->crowd_login_principal_token;
     }
 
     /**
+     * Check if user is allowed to login according his assigned groups.
+     *
      * @param $username
+     * @since    1.0.0
      * @return bool
      */
     public function crowd_login_is_in_group($username)
     {
-        $result = false;
-
         if ($this->crowd_client == null) {
-            return $result;
+            return false;
         }
-
-        $crowd_group = $this->crowd_login_options['crowd_group'];
 
         $groups = $this->crowd_client->findGroupMemberships($username);
-        if ($groups == null) {
-            return $result;
-        }
+        $crowd_group = $this->crowd_login_options['crowd_group'];
 
-        $groups = json_decode(json_encode($groups), true)['string'];
-
-        $result = in_array($crowd_group, $groups);
-
-        return $result;
+        return in_array($crowd_group, $groups);
     }
 
     /**
+     * Create Wordpress user from userdata recieved from Atlassian Crowd authentication.
+     *
      * @param $username
+     * @since    1.0.0
      * @return int|WP_Error
      */
     public function crowd_login_create_user($username)
     {
         $result = 0;
 
-        if ($this->crowd_client == null) {
-            return $result;
-        }
-
-        if ($this->crowd_login_principal_token == null) {
+        if ($this->crowd_client == null || $this->crowd_login_principal_token == null) {
             return $result;
         }
 
@@ -696,7 +686,10 @@ class Crowd_Admin
     }
 
     /**
+     * Returns userdata from SOAP response as a user array.
+     *
      * @param $principal_token
+     * @since    1.0.0
      * @return array
      */
     protected function crowd_login_get_user_info($principal_token)
