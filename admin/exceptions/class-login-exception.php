@@ -3,7 +3,7 @@
 /**
  * Exception used to indicate a problem authenticating against the Atlassian Crowd server.
  *
- * @link       https://www.auderset.dev
+ * @link       https://www.staempfli.com
  * @since      1.0.0
  *
  * @package    Crowd
@@ -17,7 +17,7 @@
  *
  * @package    Crowd
  * @subpackage Crowd/admin
- * @author     Florian Auderset <florian@auderset.dev>
+ * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Crowd_Login_Exception extends Exception
 {

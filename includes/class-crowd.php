@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.auderset.dev
+ * @link       https://www.staempfli.com
  * @since      1.0.0
  *
  * @package    Crowd
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Crowd
  * @subpackage Crowd/includes
- * @author     Florian Auderset <florian@auderset.dev>
+ * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Crowd {
 

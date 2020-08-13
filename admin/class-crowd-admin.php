@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.auderset.dev
+ * @link       https://www.staempfli.com
  * @since      1.0.0
  *
  * @package    Crowd
@@ -27,7 +27,7 @@
  *
  * @package    Crowd
  * @subpackage Crowd/admin
- * @author     Florian Auderset <florian@auderset.dev>
+ * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Crowd_Admin
 {
@@ -159,21 +159,21 @@ class Crowd_Admin
 
         add_settings_section(
             'crowd_login_setting_section',
-            'Settings',
+            __('Settings', 'crowd'),
             [$this, 'crowd_login_section_info'],
             'crowd-login-admin'
         );
 
         add_settings_section(
             'crowd_login_test_section',
-            'Test Settings',
+            __('Test settings', 'crowd'),
             [$this, 'crowd_login_test_section_info'],
             'crowd-login-admin-test'
         );
 
         add_settings_field(
             'crowd_url',
-            'Crowd URL',
+            __('Crowd URL', 'crowd'),
             [$this, 'crowd_url_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -181,7 +181,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_application_name',
-            'Application Name',
+            __('Application Name', 'crowd'),
             [$this, 'crowd_application_name_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -189,7 +189,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_application_password',
-            'Application Password',
+            __('Application Password', 'crowd'),
             [$this, 'crowd_application_password_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -197,7 +197,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_login_mode',
-            'Login Mode',
+            __('Login Mode', 'crowd'),
             [$this, 'crowd_login_mode_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -205,7 +205,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_group',
-            'Group',
+            __('Group', 'crowd'),
             [$this, 'crowd_group_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -213,7 +213,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_login_securitymode',
-            'Security Mode',
+            __('Security Mode', 'crowd'),
             [$this, 'crowd_login_securitymode_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -221,7 +221,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_account_type',
-            'Account Type',
+            __('Account Type', 'crowd'),
             [$this, 'crowd_account_type_callback'],
             'crowd-login-admin',
             'crowd_login_setting_section'
@@ -229,7 +229,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_test_username',
-            'Username',
+            __('Username', 'crowd'),
             [$this, 'crowd_test_username_callback'],
             'crowd-login-admin-test',
             'crowd_login_test_section'
@@ -237,7 +237,7 @@ class Crowd_Admin
 
         add_settings_field(
             'crowd_test_password',
-            'Password',
+            __('Password', 'crowd'),
             [$this, 'crowd_test_password_callback'],
             'crowd-login-admin-test',
             'crowd_login_test_section'

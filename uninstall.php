@@ -13,13 +13,7 @@
  * - Repeat with other user roles. Best directly by using the links/query string parameters.
  * - Repeat things for multisite. Once for a single site in the network, once sitewide.
  *
- * This file may be updated more in future version of the Boilerplate; however, this is the
- * general skeleton and outline for how the file should work.
- *
- * For more information, see the following discussion:
- * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
- *
- * @link       https://www.auderset.dev
+ * @link       https://www.staempfli.com
  * @since      1.0.0
  *
  * @package    Crowd
@@ -27,5 +21,16 @@
 
 // If uninstall not called from WordPress, then exit.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
+    exit;
 }
+
+// Remove all option value from database
+delete_option('crowd_url');
+delete_option('crowd_application_name');
+delete_option('crowd_application_password');
+delete_option('crowd_login_mode');
+delete_option('crowd_group');
+delete_option('crowd_login_securitymode');
+delete_option('crowd_account_type');
+delete_option('crowd_test_username');
+delete_option('crowd_test_password');

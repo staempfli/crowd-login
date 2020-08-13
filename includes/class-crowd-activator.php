@@ -3,7 +3,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://www.auderset.dev
+ * @link       https://www.staempfli.com
  * @since      1.0.0
  *
  * @package    Crowd
@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    Crowd
  * @subpackage Crowd/includes
- * @author     Florian Auderset <florian@auderset.dev>
+ * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Crowd_Activator {
 

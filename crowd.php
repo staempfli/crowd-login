@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.auderset.dev
+ * @link              https://www.staempfli.com
  * @since             1.0.0
  * @package           Crowd
  *
  * @wordpress-plugin
  * Plugin Name:       Crowd Login
- * Plugin URI:        https://www.auderset.dev
+ * Plugin URI:        https://www.staempfli.com
  * Description:       This plugin provides a login provider for atlassian crowd.
  * Version:           1.0.0
  * Author:            Florian Auderset
- * Author URI:        https://www.auderset.dev
+ * Author URI:        https://www.staempfli.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       crowd
