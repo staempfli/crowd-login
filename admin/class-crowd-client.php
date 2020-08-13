@@ -92,7 +92,7 @@ class Crowd_Client
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            echo "SOAP Fault: faultcode: {$code}, faultstring: {$message}";
+            error_log("SOAP Fault: faultcode: {$code}, faultstring: {$message}");
         }
 
         $this->crowd_login_app_token = $response->out->token;
@@ -143,7 +143,7 @@ class Crowd_Client
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            echo "SOAP Fault: faultcode: {$code}, faultstring: {$message}";
+            error_log("SOAP Fault: faultcode: {$code}, faultstring: {$message}");
             return null;
         }
 
@@ -186,7 +186,7 @@ class Crowd_Client
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            echo "SOAP Fault: faultcode: {$code}, faultstring: {$message}";
+            error_log("SOAP Fault: faultcode: {$code}, faultstring: {$message}");
             return '';
         }
 
@@ -218,7 +218,7 @@ class Crowd_Client
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            echo "SOAP Fault: faultcode: {$code}, faultstring: {$message}";
+            error_log("SOAP Fault: faultcode: {$code}, faultstring: {$message}");
         }
         return false;
     }
@@ -246,7 +246,7 @@ class Crowd_Client
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            echo "SOAP Fault: faultcode: {$code}, faultstring: {$message}";
+            error_log("SOAP Fault: faultcode: {$code}, faultstring: {$message}");
             return null;
         }
     }
@@ -280,7 +280,7 @@ class Crowd_Client
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            echo "SOAP Fault: faultcode: {$code}, faultstring: {$message}";
+            error_log("SOAP Fault: faultcode: {$code}, faultstring: {$message}");
             return null;
         }
     }

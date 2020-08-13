@@ -117,7 +117,6 @@ class Crowd_Admin
         ?>
         <div class="wrap">
             <h2>Crowd Login</h2>
-            <?php settings_errors(); ?>
 
             <form id="crowd-login-options" method="post" action="options.php">
                 <?php
@@ -155,7 +154,7 @@ class Crowd_Admin
         register_setting(
             'crowd_login_test_option_group',
             'crowd_login_test_option_name',
-            [$this, 'crowd_login_sanitize_test_options']
+            [$this, 'crowd_login_test_connection']
         );
 
         add_settings_section(
@@ -289,26 +288,27 @@ class Crowd_Admin
     }
 
     /**
-     * Sanitize text input fields for test options
+     * Check if connection can be established using the current configuration.
      *
      * @param $input
      * @return array
      *
      * @since    1.0.0
      */
-    public function crowd_login_sanitize_test_options($input)
+    public function crowd_login_test_connection($input)
     {
-        $sanitary_values = [];
+        if (isset($input['crowd_test_username']) && isset($input['crowd_test_password'])) {
+            $crowd_login_app_token = $this->crowd_login_initialize_client();
+            $auth_result = $this->crowd_login_can_authenticate($input['crowd_test_username'], $input['crowd_test_password']);
 
-        if (isset($input['crowd_test_username'])) {
-            $sanitary_values['crowd_test_username'] = $input['crowd_test_username'];
+            if ($auth_result == true && !is_a($auth_result, 'WP_Error')) {
+                add_settings_error('crowd_login_connection_test', 'crowd-login-connection-test-successful', __('User successfully authenticated with given configuration.', 'crowd'), 'success');
+            } else {
+                add_settings_error('crowd_login_connection_test', 'crowd-login-connection-test-successful', __('User authenticated failed. Please check your configuration.', 'crowd'));
+            }
         }
 
-        if (isset($input['crowd_test_password'])) {
-            $sanitary_values['crowd_test_password'] = $input['crowd_test_password'];
-        }
-
-        return $sanitary_values;
+        return [];
     }
 
     /**
@@ -485,10 +485,7 @@ class Crowd_Admin
      */
     public function crowd_test_username_callback()
     {
-        printf(
-            '<input class="regular-text" type="text" name="crowd_login_option_name[crowd_test_username]" id="crowd_test_username" value="%s">',
-            isset($this->crowd_login_options['crowd_test_username']) ? esc_attr($this->crowd_login_options['crowd_test_username']) : ''
-        );
+        echo '<input class="regular-text" type="text" name="crowd_login_test_option_name[crowd_test_username]" id="crowd_test_username">';
     }
 
     /**
@@ -498,22 +495,16 @@ class Crowd_Admin
      */
     public function crowd_test_password_callback()
     {
-        printf(
-            '<input class="regular-text" type="text" name="crowd_login_option_name[crowd_test_password]" id="crowd_test_password" value="%s">',
-            isset($this->crowd_login_options['crowd_test_password']) ? esc_attr($this->crowd_login_options['crowd_test_password']) : ''
-        );
+        echo '<input class="regular-text" type="password" name="crowd_login_test_option_name[crowd_test_password]" id="crowd_test_password">';
     }
 
     /**
-     * Custom user authentication using Atlassian Crowd server
-     *
-     * Authenticate against Atlassian Crowd server. Create user or log in according plugin configuration.
-     * Return Wordpress user if successful, return a Wordpress error if not.
+     * Create an instance of the SOAP Client
      *
      * @since    1.0.0
-     * @return WP_Error|WP_User
+     * @return string|WP_Error
      */
-    public function crowd_login_authenticate($user, $username, $password)
+    public function crowd_login_initialize_client()
     {
         try {
             $this->crowd_client = new Crowd_Client();
@@ -527,8 +518,26 @@ class Crowd_Admin
             $crowd_login_app_token = $this->crowd_client->authenticateApplication();
         } catch (Crowd_Login_Exception $e) {
             $this->crowd_client = null;
-            echo $e->getMessage();
+            $error = new WP_Error();
+            $error->add('crowd_login_error', $e->getMessage());
+            return $error;
         }
+
+        return $crowd_login_app_token;
+    }
+
+    /**
+     * Custom user authentication using Atlassian Crowd server
+     *
+     * Authenticate against Atlassian Crowd server. Create user or log in according plugin configuration.
+     * Return Wordpress user if successful, return a Wordpress error if not.
+     *
+     * @since    1.0.0
+     * @return WP_Error|WP_User
+     */
+    public function crowd_login_authenticate($user, $username, $password)
+    {
+        $crowd_login_app_token = $this->crowd_login_initialize_client();
 
         if (is_a($user, 'WP_User')) {
             return $user;
