@@ -24,7 +24,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
     exit;
 }
 
-// Remove all option value from database
+// Remove all option values from database since no longer in use.
 delete_option('crowd_url');
 delete_option('crowd_application_name');
 delete_option('crowd_application_password');
