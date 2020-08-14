@@ -13,10 +13,10 @@
  * @package           Crowd
  *
  * @wordpress-plugin
- * Plugin Name:       Crowd Login
+ * Plugin Name:       Stämpfli Crowd Login
  * Plugin URI:        https://www.staempfli.com
  * Description:       This plugin provides a login provider for atlassian crowd.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Florian Auderset
  * Author URI:        https://www.staempfli.com
  * License:           GPL-2.0+

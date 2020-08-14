@@ -1,4 +1,4 @@
-=== Crowd Login ===
+=== Stämpfli Crowd Login ===
 
 Contributors: florianauderset
 Donate link: https://www.staempfli.com
@@ -26,6 +26,8 @@ You can choose what user role should be assigned on user creation.
 Security Modes:
 - normal (Mixed mode. Fist authenticate against Atlassian Crowd, then Fallback to default WordPress authentication)
 - strict (only use Atlassian Crowd, disable default WordPress autentication)
+
+All product names, logos, and brands are property of their respective owners.
 
 == Installation ==
 
