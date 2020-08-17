@@ -19,7 +19,7 @@
  * @subpackage Crowd/admin
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd_Connection_Exception extends Exception
+class Staempfli_Crowd_Connection_Exception extends Exception
 {
 
 }

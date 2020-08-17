@@ -21,7 +21,7 @@
  * @subpackage Crowd/includes
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd_Loader {
+class Staempfli_Crowd_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

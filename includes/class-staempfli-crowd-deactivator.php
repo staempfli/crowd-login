@@ -20,7 +20,7 @@
  * @subpackage Crowd/includes
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd_Deactivator {
+class Staempfli_Crowd_Deactivator {
 
 	/**
      * Actions performed during plugin deactivation.

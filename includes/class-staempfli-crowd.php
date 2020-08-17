@@ -27,7 +27,7 @@
  * @subpackage Crowd/includes
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd {
+class Staempfli_Crowd {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Crowd {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Crowd_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Staempfli_Crowd_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +67,12 @@ class Crowd {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'CROWD_VERSION' ) ) {
-			$this->version = CROWD_VERSION;
+		if ( defined( 'STAEMPFLI_CROWD_VERSION' ) ) {
+			$this->version = STAEMPFLI_CROWD_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'crowd';
+		$this->plugin_name = 'staempfli-crowd-login';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -102,23 +102,23 @@ class Crowd {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-crowd-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-staempfli-crowd-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-crowd-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-staempfli-crowd-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-crowd-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-staempfli-crowd-admin.php';
 
         /**
          * The class providing the soap client to authenticate against Atlassian Crowd.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-crowd-client.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-staempfli-crowd-client.php';
 
         /**
          * Exceptions
@@ -126,7 +126,7 @@ class Crowd {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/exceptions/class-connection-exception.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/exceptions/class-login-exception.php';
 
-		$this->loader = new Crowd_Loader();
+		$this->loader = new Staempfli_Crowd_Loader();
 
 	}
 
@@ -141,7 +141,7 @@ class Crowd {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Crowd_i18n();
+		$plugin_i18n = new Staempfli_Crowd_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -155,12 +155,12 @@ class Crowd {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-		$plugin_admin = new Crowd_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Staempfli_Crowd_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'crowd_login_add_plugin_page' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'crowd_login_page_init' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'staempfli_crowd_login_add_plugin_page' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'staempfli_crowd_login_page_init' );
 
-		$this->loader->add_filter('authenticate', $plugin_admin, 'crowd_login_authenticate', 1, 3);
+		$this->loader->add_filter('authenticate', $plugin_admin, 'staempfli_crowd_login_authenticate', 1, 3);
 	}
 
 	/**
@@ -186,8 +186,8 @@ class Crowd {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     1.0.0
-	 * @return    Crowd_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Staempfli_Crowd_Loader    Orchestrates the hooks of the plugin.
+	 *@since     1.0.0
 	 */
 	public function get_loader() {
 		return $this->loader;

@@ -19,7 +19,7 @@
  * @subpackage Crowd/admin
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd_Client
+class Staempfli_Crowd_Client
 {
 
     /**
@@ -52,38 +52,38 @@ class Crowd_Client
     /**
      * Crowd_Client constructor.
      *
+     * @throws Staempfli_Crowd_Connection_Exception
      * @since    1.0.0
-     * @throws Crowd_Connection_Exception
      */
     public function __construct()
     {
-        $this->crowd_login_configuration = get_option('crowd_login_option_name');
-        $service_url = $this->crowd_login_configuration['crowd_url'] . '/services/' . 'SecurityServer?wsdl';
+        $this->crowd_login_configuration = get_option('staempfli_crowd_login_option_name');
+        $service_url = $this->crowd_login_configuration['staempfli_crowd_url'] . '/services/' . 'SecurityServer?wsdl';
 
         try {
             $this->crowd_login_soap_client = new SoapClient($service_url);
         } catch (SoapFault $soapFault) {
             $code = $soapFault->getCode();
             $message = $soapFault->getMessage();
-            throw new Crowd_Connection_Exception($message, $code);
+            throw new Staempfli_Crowd_Connection_Exception($message, $code);
         }
     }
 
     /**
      * Authenticates the application against Atlassian Crowd server.
      *
-     * @since    1.0.0
      * @return string
-     * @throws Crowd_Login_Exception
+     * @throws Staempfli_Crowd_Login_Exception
+     * @since    1.0.0
      */
     public function authenticateApplication()
     {
         $params = [
             'in0' => [
                 'credential' => [
-                    'credential' => $this->crowd_login_configuration['crowd_application_password']
+                    'credential' => $this->crowd_login_configuration['staempfli_crowd_application_password']
                 ],
-                'name' => $this->crowd_login_configuration['crowd_application_name']
+                'name' => $this->crowd_login_configuration['staempfli_crowd_application_name']
             ]
         ];
 
@@ -98,7 +98,7 @@ class Crowd_Client
         $this->crowd_login_app_token = $response->out->token;
 
         if (empty($this->crowd_login_app_token)) {
-            throw new Crowd_Login_Exception("Unable to login to Crowd. Please check your credentials.");
+            throw new Staempfli_Crowd_Login_Exception("Unable to login to Crowd. Please check your credentials.");
         } else {
             return $this->crowd_login_app_token;
         }
@@ -118,11 +118,11 @@ class Crowd_Client
     {
         $params = [
             'in0' => [
-                'name' => $this->crowd_login_configuration['crowd_application_name'],
+                'name' => $this->crowd_login_configuration['staempfli_crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
             'in1' => [
-                'application' => $this->crowd_login_configuration['crowd_application_name'],
+                'application' => $this->crowd_login_configuration['staempfli_crowd_application_name'],
                 'credential' => ['credential' => $credential],
                 'name' => $name,
                 'validationFactors' => [
@@ -165,7 +165,7 @@ class Crowd_Client
     {
         $params = [
             'in0' => [
-                'name' => $this->crowd_login_configuration['crowd_application_name'],
+                'name' => $this->crowd_login_configuration['staempfli_crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
             'in1' => $principal_token,
@@ -206,7 +206,7 @@ class Crowd_Client
     {
         $params = [
             'in0' => [
-                'name' => $this->crowd_login_configuration['crowd_application_name'],
+                'name' => $this->crowd_login_configuration['staempfli_crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
             'in1' => $principal_token
@@ -234,7 +234,7 @@ class Crowd_Client
     {
         $params = [
             'in0' => [
-                'name' => $this->crowd_login_configuration['crowd_application_name'],
+                'name' => $this->crowd_login_configuration['staempfli_crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
             'in1' => $principal_token
@@ -262,7 +262,7 @@ class Crowd_Client
     {
         $params = [
             'in0' => [
-                'name' => $this->crowd_login_configuration['crowd_application_name'],
+                'name' => $this->crowd_login_configuration['staempfli_crowd_application_name'],
                 'token' => $this->crowd_login_app_token
             ],
             'in1' => $principal_token
