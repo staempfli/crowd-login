@@ -9,8 +9,8 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
- * @subpackage Crowd/includes
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Crowd
- * @subpackage Crowd/includes
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/includes
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd_i18n {
+class Staempfli_Crowd_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Crowd_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'crowd',
+			'staempfli-crowd',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

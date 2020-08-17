@@ -10,12 +10,12 @@
  *
  * @link              https://www.staempfli.com
  * @since             1.0.0
- * @package           Crowd
+ * @package           Staempfli_Crowd_Login
  *
  * @wordpress-plugin
  * Plugin Name:       Stämpfli Crowd Login
  * Description:       This plugin provides a login provider for atlassian crowd.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Florian Auderset
  * Author URI:        https://www.staempfli.com
  * License:           GPL-2.0+
@@ -34,24 +34,24 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CROWD_VERSION', '1.0.0' );
+define( 'STAEMPFLI_CROWD_VERSION', '1.0.3' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-crowd-activator.php
+ * This action is documented in includes/class-staempfli-crowd-activator.php
  */
 function activate_crowd() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-crowd-activator.php';
-	Crowd_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-staempfli-crowd-activator.php';
+	Staempfli_Crowd_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-crowd-deactivator.php
+ * This action is documented in includes/class-staempfli-crowd-deactivator.php
  */
 function deactivate_crowd() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-crowd-deactivator.php';
-	Crowd_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-staempfli-crowd-deactivator.php';
+	Staempfli_Crowd_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_crowd' );
@@ -61,26 +61,7 @@ register_deactivation_hook( __FILE__, 'deactivate_crowd' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-crowd.php';
-
-// Fix for e-mail exists bug
-if ( !function_exists('get_user_by_email') ) :
-    /**
-     * Retrieve user info by email.
-     *
-     * @since 2.5
-     *
-     * @param string $email User's email address
-     * @return bool|object False on failure, User DB row object
-     */
-    function get_user_by_email($email) {
-        if(strlen($email) == 0 || empty($email) || $email == '' || strpos($email, '@') == false) {
-            return false;
-        } else {
-            return get_user_by('email', $email);
-        }
-    }
-endif;
+require plugin_dir_path( __FILE__ ) . 'includes/class-staempfli-crowd.php';
 
 /**
  * Begins execution of the plugin.
@@ -91,10 +72,10 @@ endif;
  *
  * @since    1.0.0
  */
-function run_crowd() {
+function run_staempfli_crowd() {
 
-	$plugin = new Crowd();
+	$plugin = new Staempfli_Crowd();
 	$plugin->run();
 
 }
-run_crowd();
+run_staempfli_crowd();

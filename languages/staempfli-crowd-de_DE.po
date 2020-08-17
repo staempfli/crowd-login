@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Crowd Login\n"
-"POT-Creation-Date: 2020-08-13 20:41+0200\n"
-"PO-Revision-Date: 2020-08-13 20:42+0200\n"
+"Project-Id-Version: Stämpfli Crowd Login\n"
+"POT-Creation-Date: 2020-08-17 08:44+0200\n"
+"PO-Revision-Date: 2020-08-17 08:44+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: crowd.php\n"
+"X-Poedit-WPHeader: staempfli-crowd-login.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -21,85 +21,86 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/class-crowd-admin.php:135 admin/class-crowd-admin.php:169
+#: admin/class-staempfli-crowd-admin.php:135
+#: admin/class-staempfli-crowd-admin.php:169
 msgid "Test settings"
 msgstr "Einstellungen Testen"
 
-#: admin/class-crowd-admin.php:162
+#: admin/class-staempfli-crowd-admin.php:162
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: admin/class-crowd-admin.php:176
+#: admin/class-staempfli-crowd-admin.php:176
 msgid "Crowd URL"
 msgstr "Crowd Login"
 
-#: admin/class-crowd-admin.php:184
+#: admin/class-staempfli-crowd-admin.php:184
 msgid "Application Name"
 msgstr "Applikationsname"
 
-#: admin/class-crowd-admin.php:192
+#: admin/class-staempfli-crowd-admin.php:192
 msgid "Application Password"
 msgstr "Applikationskennwort"
 
-#: admin/class-crowd-admin.php:200
+#: admin/class-staempfli-crowd-admin.php:200
 msgid "Login Mode"
 msgstr "Loginmodus"
 
-#: admin/class-crowd-admin.php:208
+#: admin/class-staempfli-crowd-admin.php:208
 msgid "Group"
 msgstr "Gruppe"
 
-#: admin/class-crowd-admin.php:216
+#: admin/class-staempfli-crowd-admin.php:216
 msgid "Security Mode"
 msgstr "Sicherheitsmodus"
 
-#: admin/class-crowd-admin.php:224
+#: admin/class-staempfli-crowd-admin.php:224
 msgid "Account Type"
 msgstr "Konto Typ"
 
-#: admin/class-crowd-admin.php:232
+#: admin/class-staempfli-crowd-admin.php:232
 msgid "Username"
 msgstr "Benutzername"
 
-#: admin/class-crowd-admin.php:240
+#: admin/class-staempfli-crowd-admin.php:240
 msgid "Password"
 msgstr "Kennwort"
 
-#: admin/class-crowd-admin.php:305
+#: admin/class-staempfli-crowd-admin.php:305
 msgid "User successfully authenticated with given configuration."
 msgstr "Benutzer erfolgreich mit der aktuellen Konfiguration authentifiziert."
 
-#: admin/class-crowd-admin.php:307
+#: admin/class-staempfli-crowd-admin.php:307
 msgid "User authenticated failed. Please check your configuration."
 msgstr ""
 "Authentifizierung fehlgeschlagen. Bitte überprüfen Sie Ihre Konfiguration."
 
-#: admin/class-crowd-admin.php:345
+#: admin/class-staempfli-crowd-admin.php:345
 msgid "Example: https://crowd.server.com:8080/crowd"
 msgstr "Beispiel: https://crowd.server.com:8080/crowd"
 
-#: admin/class-crowd-admin.php:359
+#: admin/class-staempfli-crowd-admin.php:359
 msgid "The application name specified in the Atlassian Crowd backend."
 msgstr "Der im Atlassian Crowd-Backend angegebene Anwendungsname."
 
-#: admin/class-crowd-admin.php:373
+#: admin/class-staempfli-crowd-admin.php:373
 msgid "The application password specified in the Atlassian Crowd backend."
 msgstr "Das im Atlassian Crowd-Backend angegebene Anwendungskennwort."
 
-#: admin/class-crowd-admin.php:389
+#: admin/class-staempfli-crowd-admin.php:389
 msgid "Authenticate only"
 msgstr "Nur authentifizieren"
 
-#: admin/class-crowd-admin.php:391
+#: admin/class-staempfli-crowd-admin.php:391
 msgid "Authenticate user against Atlassian Crowd. No user is created."
 msgstr ""
 "Nur mit Atlassian Crowd authentifizieren. Es wird kein Benutzer erstellt."
 
-#: admin/class-crowd-admin.php:397
+#: admin/class-staempfli-crowd-admin.php:397
 msgid "Create user"
 msgstr "Benutzer erstellen"
 
-#: admin/class-crowd-admin.php:399
+#: admin/class-staempfli-crowd-admin.php:399
 msgid ""
 "Create Wordpress user when successfully authenticated against Atlassian "
 "Crowd."
@@ -107,11 +108,11 @@ msgstr ""
 "Benutzer erstellen, wenn erfolgreich mit Atlassian Crowd authentifiziert "
 "wurde."
 
-#: admin/class-crowd-admin.php:406
+#: admin/class-staempfli-crowd-admin.php:406
 msgid "Create user when groupmember"
 msgstr "Benutzer erstellen, wenn Gruppenmitglied"
 
-#: admin/class-crowd-admin.php:408
+#: admin/class-staempfli-crowd-admin.php:408
 msgid ""
 "Create Wordpress user only when successfully authenticated against Atlassian "
 "Crowd and user is a member of a specified group."
@@ -119,17 +120,17 @@ msgstr ""
 "Benutzer erstellen, wenn erfolgreich mit Atlassian Crowd authentifiziert "
 "wurde und der Benutzer Mitglied einer angegebenen Gruppe ist."
 
-#: admin/class-crowd-admin.php:424
+#: admin/class-staempfli-crowd-admin.php:424
 msgid "A Wordpress user is only created if the user is a member of this group."
 msgstr ""
 "Ein Wordpress-Benutzer wird nur erstellt, wenn der Benutzer Mitglied dieser "
 "Gruppe ist."
 
-#: admin/class-crowd-admin.php:440
+#: admin/class-staempfli-crowd-admin.php:440
 msgid "Normal"
 msgstr "Normal"
 
-#: admin/class-crowd-admin.php:442
+#: admin/class-staempfli-crowd-admin.php:442
 msgid ""
 "First attempt to login with Atlassian Crowd user, when failing attempt login "
 "using the local Wordpress users. This can be used to provide a mixed login "
@@ -140,11 +141,11 @@ msgstr ""
 "Modus ist von Vorteil wenn einige Benutzer nur über einen Wordpress-Benutzer "
 "und einige über einen Atlassian Crowd Benutzer verfügen."
 
-#: admin/class-crowd-admin.php:448
+#: admin/class-staempfli-crowd-admin.php:448
 msgid "Strict"
 msgstr "Strikt"
 
-#: admin/class-crowd-admin.php:450
+#: admin/class-staempfli-crowd-admin.php:450
 msgid ""
 "Restrict logins to Atlassian Crowd only. The default Wordpress "
 "authentication is deactivated."
@@ -152,22 +153,23 @@ msgstr ""
 "Beschränken Sie Logins nur auf Atlassian Crowd. Die standardmäßige Wordpress-"
 "Authentifizierung ist deaktiviert."
 
-#: admin/class-crowd-admin.php:476
+#: admin/class-staempfli-crowd-admin.php:476
 msgid ""
 "Create Wordpress user with this role when login mode \"create\" is selected."
 msgstr ""
 "Erstellen Sie den Wordpress-Benutzer mit dieser Rolle, wenn der Anmeldemodus "
 "„Benutzer erstellen\" ausgewählt ist."
 
-#: admin/class-crowd-admin.php:556
+#: admin/class-staempfli-crowd-admin.php:556
 msgid "<strong>Error</strong>: The username field is empty."
 msgstr "<strong>Fehler</strong>: Das Feld Benutzername ist leer."
 
-#: admin/class-crowd-admin.php:560
+#: admin/class-staempfli-crowd-admin.php:560
 msgid "<strong>Error</strong>: The password field is empty."
 msgstr "<strong>Fehler </strong>: Das Passwort-Feld ist leer."
 
-#: admin/class-crowd-admin.php:579 admin/class-crowd-admin.php:590
+#: admin/class-staempfli-crowd-admin.php:579
+#: admin/class-staempfli-crowd-admin.php:590
 msgid ""
 "<strong>Crowd Login Error</strong>: An error occurred creating the user in "
 "Wordpress. <br><br>"
@@ -175,7 +177,8 @@ msgstr ""
 "<strong>Crowd Login-Fehler</strong>: Beim Erstellen des Benutzers in "
 "Wordpress ist ein Fehler aufgetreten.<br><br>"
 
-#: admin/class-crowd-admin.php:594 admin/class-crowd-admin.php:608
+#: admin/class-staempfli-crowd-admin.php:594
+#: admin/class-staempfli-crowd-admin.php:608
 msgid ""
 "<strong>Crowd Login Error</strong>: You are not allowed to log in. Please "
 "contact your administrator."
@@ -183,7 +186,7 @@ msgstr ""
 "<strong>Crowd Login-Fehler</strong>: Sie sind nicht berechtigt. Wenden Sie "
 "sich an Ihren Administrator."
 
-#: admin/class-crowd-admin.php:600
+#: admin/class-staempfli-crowd-admin.php:600
 msgid ""
 "<strong>Crowd Login Error</strong>: Crowd Login mode does not permit account "
 "creation."
@@ -191,16 +194,16 @@ msgstr ""
 "<strong>Crowd Login-Fehler</strong>: Crowd Login-Modus erlaubt keine "
 "Kontoerstellung."
 
-#: admin/class-crowd-admin.php:618
+#: admin/class-staempfli-crowd-admin.php:618
 msgid "<strong>Crowd Login Error</strong>: Authentication failed."
 msgstr "<strong>Crowd Login-Fehler</strong>: Authentifizierung fehlgeschlagen."
 
-#: admin/class-crowd-admin.php:634
+#: admin/class-staempfli-crowd-admin.php:634
 msgid "<strong>Crowd Login Error</strong>: No Crowd_Client instance available."
 msgstr ""
 "<strong>Crowd Login-Fehler</strong>: Keine Crowd_Client Instanz verfügbar."
 
-#: admin/class-crowd-admin.php:640
+#: admin/class-staempfli-crowd-admin.php:640
 msgid ""
 "<strong>Crowd Login Error</strong>: Could not retrieve principal from "
 "Atlassian Crowd server."
@@ -209,13 +212,8 @@ msgstr ""
 "Crowd-Server abgerufen werden."
 
 #. Plugin Name of the plugin/theme
-msgid "Crowd Login"
-msgstr "Crowd Login"
-
-#. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "https://www.staempfli.com"
-msgstr "https://www.staempfli.com"
+msgid "Stämpfli Crowd Login"
+msgstr "Stämpfli Crowd Login"
 
 #. Description of the plugin/theme
 msgid "This plugin provides a login provider for atlassian crowd."
@@ -224,3 +222,7 @@ msgstr "Dieses Plugin bietet die Authentifizierung über Atlassian Crowd an."
 #. Author of the plugin/theme
 msgid "Florian Auderset"
 msgstr "Florian Auderset"
+
+#. Author URI of the plugin/theme
+msgid "https://www.staempfli.com"
+msgstr "https://www.staempfli.com"

@@ -16,7 +16,7 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
+ * @package    Staempfli_Crowd_Login
  */
 
 // If uninstall not called from WordPress, then exit.
@@ -25,12 +25,12 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 // Remove all option values from database since no longer in use.
-delete_option('crowd_url');
-delete_option('crowd_application_name');
-delete_option('crowd_application_password');
-delete_option('crowd_login_mode');
-delete_option('crowd_group');
-delete_option('crowd_login_securitymode');
-delete_option('crowd_account_type');
-delete_option('crowd_test_username');
-delete_option('crowd_test_password');
+delete_option('staempfli_crowd_url');
+delete_option('staempfli_crowd_application_name');
+delete_option('staempfli_crowd_application_password');
+delete_option('staempfli_crowd_login_mode');
+delete_option('staempfli_crowd_group');
+delete_option('staempfli_crowd_login_securitymode');
+delete_option('staempfli_crowd_account_type');
+delete_option('staempfli_crowd_test_username');
+delete_option('staempfli_crowd_test_password');

@@ -6,8 +6,8 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
- * @subpackage Crowd/admin
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/admin
  */
 
 /**
@@ -15,11 +15,11 @@
  *
  * Exception used to indicate a problem connecting to the Atlassian Crowd server.
  *
- * @package    Crowd
- * @subpackage Crowd/admin
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/admin
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
-class Crowd_Connection_Exception extends Exception
+class Staempfli_Crowd_Connection_Exception extends Exception
 {
 
 }
