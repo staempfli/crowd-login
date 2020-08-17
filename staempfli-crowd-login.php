@@ -10,7 +10,7 @@
  *
  * @link              https://www.staempfli.com
  * @since             1.0.0
- * @package           Crowd
+ * @package           Staempfli_Crowd_Login
  *
  * @wordpress-plugin
  * Plugin Name:       Stämpfli Crowd Login

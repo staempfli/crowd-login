@@ -6,8 +6,8 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
- * @subpackage Crowd/admin
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/admin
  */
 
 /**
@@ -15,8 +15,8 @@
  *
  * Provides a SOAP client for to authenticate against Atlassian Crowd.
  *
- * @package    Crowd
- * @subpackage Crowd/admin
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/admin
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Staempfli_Crowd_Client

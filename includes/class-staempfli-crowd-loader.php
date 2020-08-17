@@ -6,8 +6,8 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
- * @subpackage Crowd/includes
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/includes
  */
 
 /**
@@ -17,8 +17,8 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Crowd
- * @subpackage Crowd/includes
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/includes
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Staempfli_Crowd_Loader {

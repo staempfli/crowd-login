@@ -9,8 +9,8 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
- * @subpackage Crowd/includes
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/includes
  */
 
 /**
@@ -20,8 +20,8 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Crowd
- * @subpackage Crowd/includes
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/includes
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Staempfli_Crowd_i18n {

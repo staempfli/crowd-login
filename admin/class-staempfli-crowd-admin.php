@@ -6,8 +6,8 @@
  * @link       https://www.staempfli.com
  * @since      1.0.0
  *
- * @package    Crowd
- * @subpackage Crowd/admin
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/admin
  */
 
 /**
@@ -25,8 +25,8 @@
  * $crowd_account_type = $crowd_login_options['staempfli_crowd_account_type']; // Account Type
  * ...
  *
- * @package    Crowd
- * @subpackage Crowd/admin
+ * @package    Staempfli_Crowd_Login
+ * @subpackage Staempfli_Crowd_Login/admin
  * @author     Florian Auderset <florian.auderset@staempfli.com>
  */
 class Staempfli_Crowd_Admin
