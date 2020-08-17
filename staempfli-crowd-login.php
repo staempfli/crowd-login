@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Stämpfli Crowd Login
  * Description:       This plugin provides a login provider for atlassian crowd.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Florian Auderset
  * Author URI:        https://www.staempfli.com
  * License:           GPL-2.0+
@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'STAEMPFLI_CROWD_VERSION', '1.0.3' );
+define( 'STAEMPFLI_CROWD_VERSION', '1.0.4' );
 
 /**
  * The code that runs during plugin activation.
