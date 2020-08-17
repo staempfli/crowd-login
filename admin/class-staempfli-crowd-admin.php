@@ -396,7 +396,7 @@ class Staempfli_Crowd_Admin
                                                         value="mode_create" <?php echo $checked; ?>>
                 <?php echo __('Create user', 'staempfli-crowd'); ?>
             </label>
-            <p class="description"><?php echo __('Create Wordpress user when successfully authenticated against Atlassian Crowd.', 'staempfli-crowd'); ?></p><br>
+            <p class="description"><?php echo __('Create WordPress user when successfully authenticated against Atlassian Crowd.', 'staempfli-crowd'); ?></p><br>
 
             <?php $checked = (isset($this->staempfli_crowd_login_options['staempfli_crowd_login_mode']) && $this->staempfli_crowd_login_options['staempfli_crowd_login_mode'] === 'mode_create_group') ? 'checked' : ''; ?>
             <label for="staempfli_crowd_login_mode_create_group"><input type="radio"
@@ -405,7 +405,7 @@ class Staempfli_Crowd_Admin
                                                               value="mode_create_group" <?php echo $checked; ?>>
                 <?php echo __('Create user when groupmember', 'staempfli-crowd'); ?>
             </label>
-            <p class="description"><?php echo __('Create Wordpress user only when successfully authenticated against Atlassian Crowd and user is a member of a specified group.', 'staempfli-crowd'); ?></p>
+            <p class="description"><?php echo __('Create WordPress user only when successfully authenticated against Atlassian Crowd and user is a member of a specified group.', 'staempfli-crowd'); ?></p>
         </fieldset>
         <?php
     }
@@ -421,7 +421,7 @@ class Staempfli_Crowd_Admin
             '<input class="regular-text" type="text" name="staempfli_crowd_login_option_name[staempfli_crowd_group]" id="staempfli_crowd_group" value="%s">',
             isset($this->staempfli_crowd_login_options['staempfli_crowd_group']) ? esc_attr($this->staempfli_crowd_login_options['staempfli_crowd_group']) : ''
         );
-        echo "<p class='description'>" . __('A Wordpress user is only created if the user is a member of this group.', 'staempfli-crowd') . "</p>";
+        echo "<p class='description'>" . __('A WordPress user is only created if the user is a member of this group.', 'staempfli-crowd') . "</p>";
     }
 
     /**
@@ -439,7 +439,7 @@ class Staempfli_Crowd_Admin
                        id="staempfli_crowd_login_securitymode-normal" value="security_normal" <?php echo $checked; ?>>
                 <?php echo __('Normal', 'staempfli-crowd'); ?>
             </label>
-            <p class="description"><?php echo __('First attempt to login with Atlassian Crowd user, when failing attempt login using the local Wordpress users. This can be used to provide a mixed login mode with Atlassian Crowd and Wordpress default login.', 'staempfli-crowd'); ?></p><br>
+            <p class="description"><?php echo __('First attempt to login with Atlassian Crowd user, when failing attempt login using the local WordPress users. This can be used to provide a mixed login mode with Atlassian Crowd and WordPress default login.', 'staempfli-crowd'); ?></p><br>
 
             <?php $checked = (isset($this->staempfli_crowd_login_options['staempfli_crowd_login_securitymode']) && $this->staempfli_crowd_login_options['staempfli_crowd_login_securitymode'] === 'security_strict') ? 'checked' : ''; ?>
             <label for="staempfli_crowd_login_securitymode-strict">
@@ -447,7 +447,7 @@ class Staempfli_Crowd_Admin
                        id="staempfli_crowd_login_securitymode-strict" value="security_strict" <?php echo $checked; ?>>
                 <?php echo __('Strict', 'staempfli-crowd'); ?>
             </label>
-            <p class="description"><?php echo __('Restrict logins to Atlassian Crowd only. The default Wordpress authentication is deactivated.', 'staempfli-crowd'); ?></p><br>
+            <p class="description"><?php echo __('Restrict logins to Atlassian Crowd only. The default WordPress authentication is deactivated.', 'staempfli-crowd'); ?></p><br>
         </fieldset>
         <?php
     }
@@ -473,7 +473,7 @@ class Staempfli_Crowd_Admin
             }
             ?>
         </select>
-        <p class="description"><?php echo __('Create Wordpress user with this role when login mode "create" is selected.', 'staempfli-crowd'); ?></p><br>
+        <p class="description"><?php echo __('Create WordPress user with this role when login mode "create" is selected.', 'staempfli-crowd'); ?></p><br>
 
         <?php
     }
@@ -530,7 +530,7 @@ class Staempfli_Crowd_Admin
      * Custom user authentication using Atlassian Crowd server
      *
      * Authenticate against Atlassian Crowd server. Create user or log in according plugin configuration.
-     * Return Wordpress user if successful, return a Wordpress error if not.
+     * Return WordPress user if successful, return a WordPress error if not.
      *
      * @since    1.0.0
      * @return WP_Error|WP_User
@@ -576,7 +576,7 @@ class Staempfli_Crowd_Admin
                             return new WP_User($new_user_id);
                         } else {
                             do_action('wp_login_failed', $username);
-                            return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: An error occurred creating the user in Wordpress. <br><br>' . $new_user_id->get_error_message()));
+                            return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: An error occurred creating the user in WordPress. <br><br>' . $new_user_id->get_error_message()));
                         }
                         break;
 
@@ -587,7 +587,7 @@ class Staempfli_Crowd_Admin
                                 return new WP_User($new_user_id);
                             } else {
                                 do_action('wp_login_failed', $username);
-                                return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: An error occurred creating the user in Wordpress. <br><br>' . $new_user_id->get_error_message()));
+                                return new WP_Error('invalid_username', __('<strong>Crowd Login Error</strong>: An error occurred creating the user in WordPress. <br><br>' . $new_user_id->get_error_message()));
                             }
                         } else {
                             do_action('wp_login_failed', $username);
@@ -663,7 +663,7 @@ class Staempfli_Crowd_Admin
     }
 
     /**
-     * Create Wordpress user from userdata recieved from Atlassian Crowd authentication.
+     * Create WordPress user from userdata recieved from Atlassian Crowd authentication.
      *
      * @param $username
      * @since    1.0.0

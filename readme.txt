@@ -31,7 +31,7 @@ All product names, logos, and brands are property of their respective owners.
 
 == Installation ==
 
-1. Upload `crowd-login` folder to the `/wp-content/plugins/` directory or install from WordPress backend
+1. Upload `staempfli-crowd-login` folder to the `/wp-content/plugins/` directory or install from WordPress backend
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure plugin
 

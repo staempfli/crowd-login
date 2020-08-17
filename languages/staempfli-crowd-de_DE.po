@@ -102,7 +102,7 @@ msgstr "Benutzer erstellen"
 
 #: admin/class-staempfli-crowd-admin.php:399
 msgid ""
-"Create Wordpress user when successfully authenticated against Atlassian "
+"Create WordPress user when successfully authenticated against Atlassian "
 "Crowd."
 msgstr ""
 "Benutzer erstellen, wenn erfolgreich mit Atlassian Crowd authentifiziert "
@@ -114,16 +114,16 @@ msgstr "Benutzer erstellen, wenn Gruppenmitglied"
 
 #: admin/class-staempfli-crowd-admin.php:408
 msgid ""
-"Create Wordpress user only when successfully authenticated against Atlassian "
+"Create WordPress user only when successfully authenticated against Atlassian "
 "Crowd and user is a member of a specified group."
 msgstr ""
 "Benutzer erstellen, wenn erfolgreich mit Atlassian Crowd authentifiziert "
 "wurde und der Benutzer Mitglied einer angegebenen Gruppe ist."
 
 #: admin/class-staempfli-crowd-admin.php:424
-msgid "A Wordpress user is only created if the user is a member of this group."
+msgid "A WordPress user is only created if the user is a member of this group."
 msgstr ""
-"Ein Wordpress-Benutzer wird nur erstellt, wenn der Benutzer Mitglied dieser "
+"Ein WordPress-Benutzer wird nur erstellt, wenn der Benutzer Mitglied dieser "
 "Gruppe ist."
 
 #: admin/class-staempfli-crowd-admin.php:440
@@ -133,12 +133,12 @@ msgstr "Normal"
 #: admin/class-staempfli-crowd-admin.php:442
 msgid ""
 "First attempt to login with Atlassian Crowd user, when failing attempt login "
-"using the local Wordpress users. This can be used to provide a mixed login "
-"mode with Atlassian Crowd and Wordpress default login."
+"using the local WordPress users. This can be used to provide a mixed login "
+"mode with Atlassian Crowd and WordPress default login."
 msgstr ""
 "Versuche zuerst sich mit dem Atlassian Crowd-Benutzer anzumelden, danach "
-"versuche mit den lokalen Wordpress-Benutzern anzumelden. Der gemischte Login-"
-"Modus ist von Vorteil wenn einige Benutzer nur über einen Wordpress-Benutzer "
+"versuche mit den lokalen WordPress-Benutzern anzumelden. Der gemischte Login-"
+"Modus ist von Vorteil wenn einige Benutzer nur über einen WordPress-Benutzer "
 "und einige über einen Atlassian Crowd Benutzer verfügen."
 
 #: admin/class-staempfli-crowd-admin.php:448
@@ -147,17 +147,17 @@ msgstr "Strikt"
 
 #: admin/class-staempfli-crowd-admin.php:450
 msgid ""
-"Restrict logins to Atlassian Crowd only. The default Wordpress "
+"Restrict logins to Atlassian Crowd only. The default WordPress "
 "authentication is deactivated."
 msgstr ""
-"Beschränken Sie Logins nur auf Atlassian Crowd. Die standardmäßige Wordpress-"
+"Beschränken Sie Logins nur auf Atlassian Crowd. Die standardmäßige WordPress-"
 "Authentifizierung ist deaktiviert."
 
 #: admin/class-staempfli-crowd-admin.php:476
 msgid ""
-"Create Wordpress user with this role when login mode \"create\" is selected."
+"Create WordPress user with this role when login mode \"create\" is selected."
 msgstr ""
-"Erstellen Sie den Wordpress-Benutzer mit dieser Rolle, wenn der Anmeldemodus "
+"Erstellen Sie den WordPress-Benutzer mit dieser Rolle, wenn der Anmeldemodus "
 "„Benutzer erstellen\" ausgewählt ist."
 
 #: admin/class-staempfli-crowd-admin.php:556
@@ -172,10 +172,10 @@ msgstr "<strong>Fehler </strong>: Das Passwort-Feld ist leer."
 #: admin/class-staempfli-crowd-admin.php:590
 msgid ""
 "<strong>Crowd Login Error</strong>: An error occurred creating the user in "
-"Wordpress. <br><br>"
+"WordPress. <br><br>"
 msgstr ""
 "<strong>Crowd Login-Fehler</strong>: Beim Erstellen des Benutzers in "
-"Wordpress ist ein Fehler aufgetreten.<br><br>"
+"WordPress ist ein Fehler aufgetreten.<br><br>"
 
 #: admin/class-staempfli-crowd-admin.php:594
 #: admin/class-staempfli-crowd-admin.php:608
