@@ -15,12 +15,12 @@
  * @wordpress-plugin
  * Plugin Name:       Stämpfli Crowd Login
  * Description:       This plugin provides a login provider for atlassian crowd.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Florian Auderset
  * Author URI:        https://www.staempfli.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       crowd
+ * Text Domain:       staempfli-crowd
  * Domain Path:       /languages
  */
 
@@ -30,17 +30,15 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
+ * Current plugin version.
  */
-define( 'STAEMPFLI_CROWD_VERSION', '1.0.3' );
+define( 'STAEMPFLI_CROWD_VERSION', '1.0.4' );
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-staempfli-crowd-activator.php
  */
-function activate_crowd() {
+function activate_staempfli_crowd() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-staempfli-crowd-activator.php';
 	Staempfli_Crowd_Activator::activate();
 }
@@ -49,13 +47,13 @@ function activate_crowd() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-staempfli-crowd-deactivator.php
  */
-function deactivate_crowd() {
+function deactivate_staempfli_crowd() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-staempfli-crowd-deactivator.php';
 	Staempfli_Crowd_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_crowd' );
-register_deactivation_hook( __FILE__, 'deactivate_crowd' );
+register_activation_hook( __FILE__, 'activate_staempfli_crowd' );
+register_deactivation_hook( __FILE__, 'deactivate_staempfli_crowd' );
 
 /**
  * The core plugin class that is used to define internationalization,
